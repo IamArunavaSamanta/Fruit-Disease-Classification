@@ -10,8 +10,8 @@ st.markdown('''#### :red-background[:orange[CNN]]:orange[, or Convolutional Neur
 
 import requests
 
-
-HF_API_URL = "https://api-inference.huggingface.co/models/google/gemma-2b"
+# Updated Hugging Face API endpoint
+HF_API_URL = "https://router.huggingface.co/hf-inference/models/google/gemma-2b"
 HF_TOKEN = st.secrets["HF_TOKEN"]
 
 headers = {"Authorization": f"Bearer {HF_TOKEN}"}
@@ -26,11 +26,14 @@ user_input = st.text_area("Ask something:")
 if st.button("Generate"):
     with st.spinner("Generating response..."):
         output = query({"inputs": user_input})
-        # Handle different response formats
-        if isinstance(output, list) and "generated_text" in output[0]:
-            st.write(output[0]["generated_text"])
-        elif isinstance(output, dict) and "error" in output:
-            st.error(f"Error: {output['error']}")
+        # Handle new response format
+        if isinstance(output, dict):
+            if "generated_text" in output:
+                st.write(output["generated_text"])
+            elif "error" in output:
+                st.error(f"Error: {output['error']}")
+            else:
+                st.write(output)
         else:
             st.write(output)
 
