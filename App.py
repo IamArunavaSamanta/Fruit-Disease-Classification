@@ -11,7 +11,7 @@ st.markdown('''#### :red-background[:orange[CNN]]:orange[, or Convolutional Neur
 import requests
 
 HF_API_URL = "https://api-inference.huggingface.co/models/google/gemma-2b"  # Example model
-HF_TOKEN = st.secrets["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"]  # Store token in Streamlit secrets
+HF_TOKEN = st.secrets["HF_TOKEN"]  # Store token in Streamlit secrets
 
 headers = {"Authorization": f"Bearer {HF_TOKEN}"}
 
@@ -26,3 +26,4 @@ if st.button("Generate"):
     with st.spinner("Generating response..."):
         output = query({"inputs": user_input})
         st.write(output[0]["generated_text"])
+
