@@ -131,9 +131,9 @@ else:
                         img = img.reshape(1, IMAGE_INPUT_SIZE, IMAGE_INPUT_SIZE, 1)
                         z = self.model.predict(img)
                         index = np.argmax(z)
-                        Predicted_accuracy(%) = z[0][index] * 100
+                        Predicted_accuracy = z[0][index] * 100
                         predicted_label = self.encoder.inverse_transform([index])
-                        if z[0][index] * 100 < 60:
+                        if Predicted_accuracy < 60:
                             predicted_label = str("Unknown")
                         else:
                              predicted_label = predicted_label[0]
@@ -294,6 +294,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
