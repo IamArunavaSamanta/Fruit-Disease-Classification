@@ -37,7 +37,7 @@ if "logged_in" not in st.session_state:
 # if "user_name" not in st.session_state:
 #     st.session_state.user_name = "" 
     
-st.write('# :rainbow[FruitLeaf AI: Detecting Diseases Before They Spread]🔥')
+st.text('# :rainbow[FruitLeaf AI: Detecting Diseases Before They Spread]🔥')
 st.info("A CNN-based model for detecting fruit leaf diseases with high accuracy, currently supporting apple and grape leaves. Designed to help farmers identify issues early and reduce crop losses, with plans to expand to more fruits.")  
 
 # Inject custom CSS for gradient sidebar
@@ -308,5 +308,6 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
