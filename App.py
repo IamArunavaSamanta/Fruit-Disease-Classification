@@ -165,7 +165,7 @@ else:
             images = ["https://github.com/IamArunavaSamanta/Fruit-Disease-Classification/blob/main/images/Apple%20Healthy.jpg?raw=true", 
                       "https://github.com/IamArunavaSamanta/Fruit-Disease-Classification/blob/main/images/Apple%20Black%20Rot.jpg?raw=true",
                       "https://github.com/IamArunavaSamanta/Fruit-Disease-Classification/blob/main/images/Grape%20Healthy.jpg?raw=true",
-                      "https://github.com/IamArunavaSamanta/Fruit-Disease-Classification/blob/main/images/Grape%20Black%20Measles.jpg?raw=true"
+                      "https://github.com/IamArunavaSamanta/Fruit-Disease-Classification/blob/main/images/Grape%20Black%20Measles.jpg?raw=true"]
             
             # Create 3 columns
             col1, col2, col3, col4 = st.columns(4)
@@ -294,6 +294,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
