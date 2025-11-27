@@ -266,7 +266,7 @@ else:
             st.markdown("""
                 <div class='stats-card'>
                     <div class='feature-icon'>🎯</div>
-                    <div class='stats-number'>96.5%</div>
+                    <div class='stats-number'>95.3%</div>
                     <div class='stats-label'>Accuracy</div>
                 </div>
             """, unsafe_allow_html=True)
@@ -283,16 +283,16 @@ else:
             st.markdown("""
                 <div class='stats-card'>
                     <div class='feature-icon'>✉️</div>
-                    <div class='stats-number'>6500+</div>
-                    <div class='stats-label'>Trained Img</div>
+                    <div class='stats-number'>15000+</div>
+                    <div class='stats-label'>Trained Images</div>
                 </div>
             """, unsafe_allow_html=True)
         with col4:
             st.markdown("""
                 <div class='stats-card'>
                     <div class='feature-icon'>🔎</div>
-                    <div class='stats-number'>7</div>
-                    <div class='stats-label'>Total Class</div>
+                    <div class='stats-number'>0.13</div>
+                    <div class='stats-label'>Total Loss</div>
                 </div>
             """, unsafe_allow_html=True)
     #--------------------------------------------------------------------------------------------------------------    
@@ -308,6 +308,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
