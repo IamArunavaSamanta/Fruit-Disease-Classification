@@ -37,7 +37,7 @@ if "logged_in" not in st.session_state:
 # if "user_name" not in st.session_state:
 #     st.session_state.user_name = "" 
     
-st.write('# :rainbow[Fruit Disease Classification]🔥')
+st.write('# :rainbow[FruitLeaf AI: Detecting Diseases Before They Spread]🔥')
 st.info("A CNN-based model for detecting fruit leaf diseases with high accuracy, currently supporting apple and grape leaves. Designed to help farmers identify issues early and reduce crop losses, with plans to expand to more fruits.")  
 
 # Inject custom CSS for gradient sidebar
@@ -77,7 +77,7 @@ else:
 #--------------------------------------------------------------------------------------------------------------------------
     
     if menu == "🏠Home":
-        st.image("https://raw.githubusercontent.com/IamArunavaSamanta/Fruit-Disease-Classification/main/images/1000395562.jpg", width=400)
+        st.image("https://raw.githubusercontent.com/IamArunavaSamanta/Fruit-Disease-Classification/main/images/1000395562.jpg", width=300)
         st.markdown('''#### :red-background[:orange[CNN]]:orange[, or Convolutional Neural Network,] ''')
         
         st.markdown("""
@@ -93,17 +93,10 @@ else:
         - **Activation Functions**: Introduce non-linearity to learn complex patterns.
         
         ##### 🚘 Applications:
-        - Classifying vehicle types (e.g., car, truck, bike)
-        - Traffic monitoring systems
-        - Autonomous driving
-        - Smart parking solutions
-
-         ##### 📒 Transfer Learning:
-        - Transfer learning is a technique where a model trained on a large dataset for one task is reused for a different but related task. Instead of training from scratch, we leverage pre-trained models to save time and improve accuracy, especially when our dataset is small.
-        - We used VGGNet (specifically VGG16) as the base model for transfer learning.
-        - It is a deep convolutional neural network architecture developed by Visual Geometry Group (VGG) at Oxford.
-        - Pre-trained weights on ImageNet are widely available, making it ideal for transfer learning.
-
+        - Agricultural Advisory Services
+        - Precision Agriculture
+        - Smart Farming Systems
+        - Crop Loss Prevention
         
         """)
     
@@ -112,9 +105,6 @@ else:
         )
         st.markdown(
          "---🔗Additional Learning [CNN](https://www.geeksforgeeks.org/deep-learning/convolutional-neural-network-cnn-in-machine-learning/)"
-        )
-        st.markdown(
-            "---🔗Additional Learning [VGG-Net](https://www.geeksforgeeks.org/computer-vision/vgg-net-architecture-explained/)"
         )
             
 #-------------------------------------------------------------------------------------------------------------------
@@ -318,4 +308,5 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
