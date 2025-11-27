@@ -187,30 +187,30 @@ else:
     #         else:
     #             st.info("Please upload a vehicle image to see predictions.")
 #--------------------------------------------------------------------------------------------------------        
-            st.text("🗒 Examples")    
-            # Image paths or URLs
-            images = ["https://github.com/IamArunavaSamanta/CNN-Streamlit-Vehicles-Classification-Project/blob/main/images/Bike.jpg?raw=true", 
-                      "https://github.com/IamArunavaSamanta/CNN-Streamlit-Vehicles-Classification-Project/blob/main/images/Car.jpg?raw=true",
-                      "https://github.com/IamArunavaSamanta/CNN-Streamlit-Vehicles-Classification-Project/blob/main/images/Big%20Truck.jpg?raw=true"]
+        #     st.text("🗒 Examples")    
+        #     # Image paths or URLs
+        #     images = ["https://github.com/IamArunavaSamanta/CNN-Streamlit-Vehicles-Classification-Project/blob/main/images/Bike.jpg?raw=true", 
+        #               "https://github.com/IamArunavaSamanta/CNN-Streamlit-Vehicles-Classification-Project/blob/main/images/Car.jpg?raw=true",
+        #               "https://github.com/IamArunavaSamanta/CNN-Streamlit-Vehicles-Classification-Project/blob/main/images/Big%20Truck.jpg?raw=true"]
             
-            # Create 3 columns
-            col1, col2, col3 = st.columns(3)
+        #     # Create 3 columns
+        #     col1, col2, col3 = st.columns(3)
             
-            # Set a fixed width (e.g., 200px)
-            image_width = 250
+        #     # Set a fixed width (e.g., 200px)
+        #     image_width = 250
             
-            # Display images
-            col1.image(images[0], width=image_width)
-            col1.success("🛵 Predicted Class: Bikes")
-            col1.success("📊 Prediction Accuracy(%): 99.1")
-            col2.image(images[1], width=image_width)
-            col2.success("🚗 Predicted Class: Cars")
-            col2.success("📊 Prediction Accuracy(%): 98.1")
-            col3.image(images[2], width=image_width)
-            col3.success("🚛 Predicted Class: Truck")
-            col3.success("📊 Prediction Accuracy(%): 96.8")
-        else:
-            st.warning("Please login first to access this page.")
+        #     # Display images
+        #     col1.image(images[0], width=image_width)
+        #     col1.success("🛵 Predicted Class: Bikes")
+        #     col1.success("📊 Prediction Accuracy(%): 99.1")
+        #     col2.image(images[1], width=image_width)
+        #     col2.success("🚗 Predicted Class: Cars")
+        #     col2.success("📊 Prediction Accuracy(%): 98.1")
+        #     col3.image(images[2], width=image_width)
+        #     col3.success("🚛 Predicted Class: Truck")
+        #     col3.success("📊 Prediction Accuracy(%): 96.8")
+        # else:
+        #     st.warning("Please login first to access this page.")
 #--------------------------------------------------------------------------------------------------------------------
     elif menu == '📍Fun Quiz':
         st.text("1. Which of the following is a type of Machine Learning?")
@@ -318,3 +318,4 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
