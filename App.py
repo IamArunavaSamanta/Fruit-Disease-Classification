@@ -146,7 +146,7 @@ else:
                         
                         return Predicted_accuracy, predicted_label
         
-            savedModel = joblib.load("models/FruitsModel.pkl")
+            savedModel = joblib.load("models/FruitsModel.pkl", mmap_mode='r')
             
             if uploaded_file is not None:
                 st.image(uploaded_file, caption="Uploaded Image", width=300)
@@ -294,6 +294,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
