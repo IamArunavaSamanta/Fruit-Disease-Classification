@@ -44,7 +44,7 @@ st.info("A CNN-based model for detecting fruit leaf diseases with high accuracy,
 st.markdown("""
     <style>
         [data-testid="stSidebar"] > div:first-child {
-            background-image: linear-gradient(to right, #013F12, #0E1117);
+            background-image: linear-gradient(to buttom right, #013F12, #0E1117);
             color: white;
         }
     </style>
@@ -78,7 +78,7 @@ else:
     
     if menu == "🏠Home":
         st.image("https://raw.githubusercontent.com/IamArunavaSamanta/Fruit-Disease-Classification/main/images/1000395562.jpg", width=300)
-        st.markdown('''#### :red-background[:orange[CNN]]:orange[, or Convolutional Neural Network,] ''')
+        st.markdown('''#### :red-background[:orange[CNN]]:green[, or Convolutional Neural Network,] ''')
         
         st.markdown("""
         It is a type of deep learning model designed to automatically and adaptively learn features from input images. Convolution is a mathematical operation that combines two functions to produce a third function.
@@ -308,6 +308,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
