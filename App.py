@@ -107,7 +107,7 @@ else:
             "---🔗Developed by [Arunava Samanta](https://www.linkedin.com/in/arunava-samanta-7439071ba/)"        
         )
             
--------------------------------------------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------------------------------------------
     elif menu =='💻Prediction':
         if st.session_state.logged_in:
             st.success("Welcome to Prediction Page!")
@@ -294,6 +294,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
