@@ -78,7 +78,7 @@ else:
     
     if menu == "🏠Home":
         st.image("https://raw.githubusercontent.com/IamArunavaSamanta/Fruit-Disease-Classification/main/images/1000395562.jpg", width=300)
-        st.markdown('''#### :red-background[:orange[CNN]]:green[, or Convolutional Neural Network,] ''')
+        st.markdown('''#### :red-background[:green[CNN]]:green[, or Convolutional Neural Network,] ''')
         
         st.markdown("""
         It is a type of deep learning model designed to automatically and adaptively learn features from input images. Convolution is a mathematical operation that combines two functions to produce a third function.
@@ -308,6 +308,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
