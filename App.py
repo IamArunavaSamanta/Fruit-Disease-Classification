@@ -37,14 +37,14 @@ if "logged_in" not in st.session_state:
 # if "user_name" not in st.session_state:
 #     st.session_state.user_name = "" 
     
-st.write('## :rainbow[FruitLeaf AI: Detecting Diseases Before They Spread]🔥')
+st.write('### :rainbow[FruitLeaf AI: Detecting Diseases Before They Spread]')
 st.info("A CNN-based model for detecting fruit leaf diseases with high accuracy, currently supporting apple and grape leaves. Designed to help farmers identify issues early and reduce crop losses, with plans to expand to more fruits.")  
 
 # Inject custom CSS for gradient sidebar
 st.markdown("""
     <style>
         [data-testid="stSidebar"] > div:first-child {
-            background-image: linear-gradient(to bottom right, #3F0112, #0E1117);
+            background-image: linear-gradient(to bottom right, #013F12, #0E1117);
             color: white;
         }
     </style>
@@ -101,10 +101,10 @@ else:
         """)
     
         st.markdown(
-            "---🔗Developed by [Arunava Samanta](https://www.linkedin.com/in/arunava-samanta-7439071ba/)"        
+         "---🔗Additional Learning [CNN](https://www.geeksforgeeks.org/deep-learning/convolutional-neural-network-cnn-in-machine-learning/)"
         )
         st.markdown(
-         "---🔗Additional Learning [CNN](https://www.geeksforgeeks.org/deep-learning/convolutional-neural-network-cnn-in-machine-learning/)"
+            "---🔗Developed by [Arunava Samanta](https://www.linkedin.com/in/arunava-samanta-7439071ba/)"        
         )
             
 #-------------------------------------------------------------------------------------------------------------------
@@ -308,6 +308,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
