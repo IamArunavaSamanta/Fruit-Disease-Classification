@@ -146,13 +146,13 @@ else:
                         
                         return Predicted_accuracy, predicted_label
         
-            savedModel = joblib.load("models/NewVehicleModel.pkl")
+            savedModel = joblib.load("models/FruitsModel.pkl")
             
             if uploaded_file is not None:
                 st.image(uploaded_file, caption="Uploaded Image", width=300)
             
                 # Run prediction only after file is uploaded
-                accuracy, label = savedModel.single_img_read(uploaded_file)
+                accuracy, label = savedModel.img_read(uploaded_file)
             
                 st.markdown(f"### 🤖 Predicted Class: `{label}`")
                 st.markdown(f"### 📊 Prediction Accuracy(%): `{accuracy:.3f}`")
@@ -294,6 +294,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
