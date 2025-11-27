@@ -37,14 +37,14 @@ if "logged_in" not in st.session_state:
 # if "user_name" not in st.session_state:
 #     st.session_state.user_name = "" 
     
-st.write('### :rainbow[FruitLeaf AI: Detecting Diseases Before They Spread]')
+st.write('## :rainbow[FruitLeaf AI: Detecting Diseases Before They Spread]')
 st.info("A CNN-based model for detecting fruit leaf diseases with high accuracy, currently supporting apple and grape leaves. Designed to help farmers identify issues early and reduce crop losses, with plans to expand to more fruits.")  
 
 # Inject custom CSS for gradient sidebar
 st.markdown("""
     <style>
         [data-testid="stSidebar"] > div:first-child {
-            background-image: linear-gradient(to bottom right, #013F12, #0E1117);
+            background-image: linear-gradient(to right, #013F12, #0E1117);
             color: white;
         }
     </style>
@@ -52,7 +52,7 @@ st.markdown("""
 
 if not st.session_state.logged_in:
     st.markdown("""
-    <h5><span style='color: orange; font-size: 36px;'>🔐Login</span></h5>
+    <h5><span style='color: orange; font-size: 30px;'>🔐Login</span></h5>
     """, unsafe_allow_html=True)
     email = st.text_input("Email Id")
     pw = st.text_input("Password", type='password')
@@ -308,6 +308,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
