@@ -44,7 +44,7 @@ st.info("A CNN-based model for detecting fruit leaf diseases with high accuracy,
 st.markdown("""
     <style>
         [data-testid="stSidebar"] > div:first-child {
-            background-image: linear-gradient(to buttom right, #013F12, #0E1117);
+            background-image: linear-gradient(to button right, #013F12, #0E1117);
             color: white;
         }
     </style>
@@ -308,6 +308,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
