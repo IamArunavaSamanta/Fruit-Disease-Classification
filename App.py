@@ -114,56 +114,57 @@ else:
         
             st.markdown("##### Upload a vehicle image 👇")
             uploaded_file = st.file_uploader("Choose a JPG file", type=["jpg"])
-            class ModelWrapper():
+            class ModelWrapper:
                 def __init__(self, model, encoder):
                     self.model = model
                     self.encoder = encoder
-                        
-                    def img_read(self, path):
-                        IMAGE_INPUT_SIZE = 175
-                            
-                        from PIL import Image
-                        # Read image from file-like object using PIL, then convert to NumPy array
-                        img = Image.open(file_obj).convert("GRAY")  # Convert to grayscale
-                        img = img.resize((IMAGE_INPUT_SIZE, IMAGE_INPUT_SIZE))
-                        img = np.array(img)
-                        # Reshape for model input
-                        img = img.reshape(1, IMAGE_INPUT_SIZE, IMAGE_INPUT_SIZE, 1)
-                        z = self.model.predict(img)
-                        index = np.argmax(z)
-                        Predicted_accuracy = z[0][index] * 100
-                        predicted_label = self.encoder.inverse_transform([index])
-                        if Predicted_accuracy < 60:
-                            predicted_label = str("Unknown")
-                        else:
-                             predicted_label = predicted_label[0]
-                        # Set tick labels to white
-                        ax.tick_params(axis='y', colors='white')
-                        # Set axis lines (spines) to white
-                        for spine in ax.spines.values():
-                            spine.set_color('white')
-                        st.pyplot(fig)
-                        
-                        return Predicted_accuracy, predicted_label
             
-            # import pickle
-            # with open("model/FruitsModel.pkl", "rb") as f:
-            #         savedModel = pickle.load(f)
+                def img_read(self, file_obj):
+                    IMAGE_INPUT_SIZE = 175
+            
+                    # Read and preprocess image
+                    img = Image.open(file_obj).convert("L")  # Grayscale
+                    img = img.resize((IMAGE_INPUT_SIZE, IMAGE_INPUT_SIZE))
+                    img = np.array(img)
+                    img = img.reshape(1, IMAGE_INPUT_SIZE, IMAGE_INPUT_SIZE, 1)  # For CNN input
+            
+                    # Predict
+                    z = self.model.predict(img)
+                    index = np.argmax(z)
+                    Predicted_accuracy = z[0][index] * 100
+                    predicted_label = self.encoder.inverse_transform([index])
+            
+                    if Predicted_accuracy < 60:
+                        predicted_label = "Unknown"
+                    else:
+                        predicted_label = predicted_label[0]
+            
+                    # Plot prediction probabilities
+                    fig, ax = plt.subplots()
+                    ax.bar(range(len(z[0])), z[0])
+                    ax.set_title("Prediction Probabilities")
+                    ax.set_xlabel("Classes")
+                    ax.set_ylabel("Probability")
+                    ax.tick_params(axis='y', colors='white')
+                    for spine in ax.spines.values():
+                        spine.set_color('white')
+                    st.pyplot(fig)
+                    return Predicted_accuracy, predicted_label
+            
+                    # Load model and encoder
+                    model = joblib.load("FruitsModel.pkl")  # Replace with your model path
+                    encoder = joblib.load("encoder.pkl")    # Replace with your encoder path
+                    savedModel = ModelWrapper(model, encoder)
+            
+                    if uploaded_file is not None:
+                        st.image(uploaded_file, caption="Uploaded Image", width=300)
+                        accuracy, label = savedModel.img_read(uploaded_file)
+                        st.markdown(f"### 🤖 Predicted Class: `{label}`")
+                        st.markdown(f"### 📊 Prediction Accuracy(%): `{accuracy:.3f}`")
+                        st.success("✅ Prediction completed!")
+                    else:
+                        st.info("Please upload a vehicle image to see predictions.")
 
-            savedModel = joblib.load("FruitsModel.pkl")
-
-            
-            if uploaded_file is not None:
-                st.image(uploaded_file, caption="Uploaded Image", width=300)
-            
-                # Run prediction only after file is uploaded
-                accuracy, label = savedModel.img_read(uploaded_file)
-            
-                st.markdown(f"### 🤖 Predicted Class: `{label}`")
-                st.markdown(f"### 📊 Prediction Accuracy(%): `{accuracy:.3f}`")
-                st.success("✅ Prediction completed!")
-            else:
-                st.info("Please upload a vehicle image to see predictions.")
 #--------------------------------------------------------------------------------------------------------        
             st.text("🗒 Examples")    
             # Image paths or URLs
@@ -299,6 +300,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
