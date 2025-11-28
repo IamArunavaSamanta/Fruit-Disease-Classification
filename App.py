@@ -154,7 +154,7 @@ else:
                 st.markdown(f"### 📊 Prediction Accuracy(%): `{accuracy:.3f}`")
                 st.success("✅ Prediction completed!")
             else:
-                st.info("Please upload a vehicle image to see predictions.")
+                st.info("Please upload a leaf image to see predictions.")
 
 #--------------------------------------------------------------------------------------------------------        
             st.text("🗒 Examples")    
@@ -172,16 +172,16 @@ else:
             
             # Display images
             col1.image(images[0], width=image_width)
-            col1.success("Predicted Class: Bikes")
-            col1.success("📊 Prediction Accuracy(%): 99.1")
+            col1.success("🔍 Class: Apple Healthy")
+            col1.success("📊 Accuracy(%): 99.0")
             col2.image(images[1], width=image_width)
-            col2.success("Predicted Class: Cars")
-            col2.success("📊 Prediction Accuracy(%): 98.1")
+            col2.success("🔍 Class: Apple Black Rot")
+            col2.success("📊 Accuracy(%): 98.1")
             col3.image(images[2], width=image_width)
-            col3.success("Predicted Class: Truck")
-            col3.success("📊 Prediction Accuracy(%): 96.8")
-            col4.success("Predicted Class: Truck")
-            col4.success("📊 Prediction Accuracy(%): 96.8")
+            col3.success("🔍 Class: Grape Healthy")
+            col3.success("📊 Accuracy(%): 96.8")
+            col4.success("🔍 Class: Grape Black Measles")
+            col4.success("📊 Accuracy(%): 97.7")
         else:
             st.warning("Please login first to access this page.")
 #--------------------------------------------------------------------------------------------------------------------
@@ -291,6 +291,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
