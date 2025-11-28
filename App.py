@@ -111,59 +111,57 @@ else:
     elif menu =='💻Prediction':
         if st.session_state.logged_in:
             st.success("Welcome to Prediction Page!")
-        
-            st.markdown("##### Upload a vehicle image 👇")
+    
+            st.markdown("##### Upload a leaf image 👇")
             uploaded_file = st.file_uploader("Choose a JPG file", type=["jpg"])
-            class ModelWrapper:
+        
+                #Function
+            class ModelWrapper():
                 def __init__(self, model, encoder):
                     self.model = model
                     self.encoder = encoder
-            
+                    
                 def img_read(self, file_obj):
+                    from PIL import Image
                     IMAGE_INPUT_SIZE = 175
-            
-                    # Read and preprocess image
-                    img = Image.open(file_obj).convert("L")  # Grayscale
+                
+                    # Read image from file-like object using PIL, then convert to NumPy array
+                    img = Image.open(file_obj).convert("GRAY")  # Convert to grayscale
                     img = img.resize((IMAGE_INPUT_SIZE, IMAGE_INPUT_SIZE))
                     img = np.array(img)
-                    img = img.reshape(1, IMAGE_INPUT_SIZE, IMAGE_INPUT_SIZE, 1)  # For CNN input
-            
+                    # Reshape for model input
+                    img = img.reshape(1, IMAGE_INPUT_SIZE, IMAGE_INPUT_SIZE, 1)
                     # Predict
                     z = self.model.predict(img)
                     index = np.argmax(z)
-                    Predicted_accuracy = z[0][index] * 100
-                    predicted_label = self.encoder.inverse_transform([index])
-            
-                    if Predicted_accuracy < 60:
-                        predicted_label = "Unknown"
+                    Predicted_accuracy = z[0][index]*100
+                    if Predicted_accuracy<60:
+                        predicted_label = str("Unknown")
                     else:
-                        predicted_label = predicted_label[0]
-            
-                    # Plot prediction probabilities
-                    fig, ax = plt.subplots()
-                    ax.bar(range(len(z[0])), z[0])
-                    ax.set_title("Prediction Probabilities")
-                    ax.set_xlabel("Classes")
-                    ax.set_ylabel("Probability")
+                        predicted_label = self.encoder.inverse_transform([index])[0]
+                    
+                    # Set tick labels to white
                     ax.tick_params(axis='y', colors='white')
+                    # Set axis lines (spines) to white
                     for spine in ax.spines.values():
                         spine.set_color('white')
                     st.pyplot(fig)
+                    
                     return Predicted_accuracy, predicted_label
+        
+            savedModel = joblib.load("FruitsModel.pkl")
             
-                    # Load model and encoder
-                    model = joblib.load("FruitsModel.pkl")  # Replace with your model path
-                    encoder = joblib.load("encoder.pkl")    # Replace with your encoder path
-                    savedModel = ModelWrapper(model, encoder)
+            if uploaded_file is not None:
+                st.image(uploaded_file, caption="Uploaded Image", width=300)
             
-                    if uploaded_file is not None:
-                        st.image(uploaded_file, caption="Uploaded Image", width=300)
-                        accuracy, label = savedModel.img_read(uploaded_file)
-                        st.markdown(f"### 🤖 Predicted Class: `{label}`")
-                        st.markdown(f"### 📊 Prediction Accuracy(%): `{accuracy:.3f}`")
-                        st.success("✅ Prediction completed!")
-                    else:
-                        st.info("Please upload a vehicle image to see predictions.")
+                # Run prediction only after file is uploaded
+                accuracy, label = savedModel.single_img_read(uploaded_file)
+            
+                st.markdown(f"### 🤖 Predicted Class: `{label}`")
+                st.markdown(f"### 📊 Prediction Accuracy(%): `{accuracy:.3f}`")
+                st.success("✅ Prediction completed!")
+            else:
+                st.info("Please upload a vehicle image to see predictions.")
 
 #--------------------------------------------------------------------------------------------------------        
             st.text("🗒 Examples")    
@@ -177,19 +175,19 @@ else:
             col1, col2, col3, col4 = st.columns(4)
             
             # Set a fixed width (e.g., 200px)
-            image_width = 200
+            image_width = 150
             
             # Display images
             col1.image(images[0], width=image_width)
-            col1.success("🛵 Predicted Class: Bikes")
+            col1.success("Predicted Class: Bikes")
             col1.success("📊 Prediction Accuracy(%): 99.1")
             col2.image(images[1], width=image_width)
-            col2.success("🚗 Predicted Class: Cars")
+            col2.success("Predicted Class: Cars")
             col2.success("📊 Prediction Accuracy(%): 98.1")
             col3.image(images[2], width=image_width)
-            col3.success("🚛 Predicted Class: Truck")
+            col3.success("Predicted Class: Truck")
             col3.success("📊 Prediction Accuracy(%): 96.8")
-            col4.success("🚛 Predicted Class: Truck")
+            col4.success("Predicted Class: Truck")
             col4.success("📊 Prediction Accuracy(%): 96.8")
         else:
             st.warning("Please login first to access this page.")
@@ -300,6 +298,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
