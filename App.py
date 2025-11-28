@@ -126,7 +126,7 @@ else:
                     IMAGE_INPUT_SIZE = 175
                 
                     # Read image from file-like object using PIL, then convert to NumPy array
-                    img = Image.open(file_obj).convert("GRAY")  # Convert to grayscale
+                    img = Image.open(file_obj).convert("L")  # Convert to grayscale
                     img = img.resize((IMAGE_INPUT_SIZE, IMAGE_INPUT_SIZE))
                     img = np.array(img)
                     # Reshape for model input
@@ -298,6 +298,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
