@@ -146,9 +146,12 @@ else:
                         
                         return Predicted_accuracy, predicted_label
             
-            import pickle
-            with open("model/FruitsModel.pkl", "rb") as f:
-                    savedModel = pickle.load(f)
+            # import pickle
+            # with open("model/FruitsModel.pkl", "rb") as f:
+            #         savedModel = pickle.load(f)
+
+            savedModel = joblib.load("model/FruitsModel.pkl")
+
             
             if uploaded_file is not None:
                 st.image(uploaded_file, caption="Uploaded Image", width=300)
@@ -296,6 +299,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
