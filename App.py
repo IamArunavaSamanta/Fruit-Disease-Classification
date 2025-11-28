@@ -140,13 +140,6 @@ else:
                     else:
                         predicted_label = self.encoder.inverse_transform([index])[0]
                     
-                    # Set tick labels to white
-                    ax.tick_params(axis='y', colors='white')
-                    # Set axis lines (spines) to white
-                    for spine in ax.spines.values():
-                        spine.set_color('white')
-                    st.pyplot(fig)
-                    
                     return Predicted_accuracy, predicted_label
         
             savedModel = joblib.load("FruitsModel.pkl")
@@ -298,6 +291,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
