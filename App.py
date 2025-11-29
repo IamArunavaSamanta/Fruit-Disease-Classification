@@ -166,9 +166,7 @@ else:
                                         Please connect with us—we will provide all decisions along with sprays, fungicides, and a full treatment plan to save your harvest.
                                         📩 Contact us: Email – arunavasamanta001@gmail.com, WhatsApp – [+91-9330658166] for the best solution before it’s too late.""")
                 if label == 'Apple___Cedar_apple_rust':
-                    st.warning("Orange spots on leaves and fruits mean cedar rust is attacking. This disease weakens trees, reduces fruit size, and spreads fast from nearby cedar plants.\n 
-                                        If untreated, your orchard’s productivity will collapse. Stop the spread today: We offer targeted fungicides and complete prevention strategies.\n
-                                        📩 Contact us: Email – arunavasamanta001@gmail.com, WhatsApp – [+91-9330658166] for guaranteed protection.")
+                    st.warning("Orange spots on leaves and fruits mean cedar rust is attacking. This disease weakens trees, reduces fruit size, and spreads fast from nearby cedar plants.\nIf untreated, your orchard’s productivity will collapse. Stop the spread today: We offer targeted fungicides and complete prevention strategies.\n📩 Contact us: Email – arunavasamanta001@gmail.com, WhatsApp – [+91-9330658166] for guaranteed protection.")
                 
             else:
                 st.info("Please upload a leaf image to see predictions.")
@@ -327,6 +325,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
