@@ -153,19 +153,19 @@ else:
                 st.markdown(f"#### 🤖 Predicted Class: `{label}`")
                 st.markdown(f"#### 📊 Prediction Accuracy(%): `{accuracy:.1f}`")
                 st.success("✅ Prediction completed!")
-                if label = 'Apple___healthy':
+                if label == 'Apple___healthy':
                     st.markdown(""" # Healthy apple trees mean strong growth and high profits—but neglect can turn them vulnerable to deadly diseases overnight. 
                                         Don’t take chances: Regular pruning, proper nutrition, and preventive care are essential to keep your orchard safe. 
                                         📩 Contact us: Email – arunavasamanta001@gmail.com, WhatsApp – [+91-9330658166] for complete protection plans.""")
-                if label = 'Apple___Black_rot':
+                if label == 'Apple___Black_rot':
                     st.markdown(""" # Black rot is a silent killer. It starts with small dark spots on leaves and fruits, then spreads rapidly, causing fruit rot and branch dieback. 
                                         If ignored, it can destroy your entire orchard and cut your income to zero. Act now: Remove infected parts, apply the right fungicides, and follow strict orchard hygiene. 
                                         📩 Contact us: Email – arunavasamanta001@gmail.com, WhatsApp – [+91-9330658166] for the best solution before it’s too late.""")
-                if label = 'Apple___Apple_scab':
+                if label == 'Apple___Apple_scab':
                     st.markdown(""" # Apple scab leaves ugly olive-green spots on leaves and fruits, making them unsellable. Severe infection causes premature leaf drop, weak trees, and up to 70% crop loss.
                                         Please connect with us—we will provide all decisions along with sprays, fungicides, and a full treatment plan to save your harvest.
                                         📩 Contact us: Email – arunavasamanta001@gmail.com, WhatsApp – [+91-9330658166] for the best solution before it’s too late.""")
-                if label = 'Apple___Cedar_apple_rust':
+                if label == 'Apple___Cedar_apple_rust':
                     st.markdown(""" #  Orange spots on leaves and fruits mean cedar rust is attacking. This disease weakens trees, reduces fruit size, and spreads fast from nearby cedar plants. 
                                         If untreated, your orchard’s productivity will collapse. Stop the spread today: We offer targeted fungicides and complete prevention strategies.
                                         📩 Contact us: Email – arunavasamanta001@gmail.com, WhatsApp – [+91-9330658166] for guaranteed protection.""")
@@ -327,6 +327,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
