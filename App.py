@@ -115,8 +115,7 @@ else:
             st.markdown("##### Upload a leaf image 👇")
             uploaded_file = st.file_uploader("Choose a JPG file", type=["jpg"])
         
-                #Function
-            encoder = LabelEncoder()
+            #Function
             class ModelWrapper():
                 def __init__(self, model, encoder):
                     self.model = model
@@ -149,8 +148,7 @@ else:
                 st.image(uploaded_file, caption="Uploaded Image", width=300)
             
                 # Run prediction only after file is uploaded
-                wrapper = ModelWrapper(savedModel, encoder)
-                accuracy, label = wrapper.img_read(uploaded_file)
+                accuracy, label = savedModel.img_read(uploaded_file)
             
                 st.markdown(f"#### 🤖 Predicted Class: `{label}`")
                 st.markdown(f"#### 📊 Prediction Accuracy(%): `{accuracy:.1f}`")
@@ -312,6 +310,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
