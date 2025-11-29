@@ -204,8 +204,26 @@ else:
             st.success("✅ Correct!")
         else:
             st.error("❌ Try again")
+    #---------------------------------------------------------------------------------------------------        
+        st.text("3. Which CNN architecture first won the ImageNet competition in 2012?")
+        ans = st.radio("Choose any one",  ['A. LeNet', 'B. ResNet', 'C. AlexNet', 'D. VGG'], index=None)
+        if ans is None:
+            st.warning("⚠️ Select an option")
+        elif ans == 'C. AlexNet':
+            st.success("✅ Correct!")
+        else:
+            st.error("❌ Try again")
+     #---------------------------------------------------------------------------------------------------        
+        st.text("4. What type of problem is typically solved using CNNs in medical imaging?")
+        ans = st.radio("Choose any one",  ['A. Disease detection', 'B. Sentiment analysis', 'C. Time series prediction', 'D. Language translation'], index=None)
+        if ans is None:
+            st.warning("⚠️ Select an option")
+        elif ans == 'A. Disease detection':
+            st.success("✅ Correct!")
+        else:
+            st.error("❌ Try again")
     #------------------------------------------------------------------------------------------------------        
-        st.text("3.  What is the full name of the OpenCV?")
+        st.text("5.  What is the full name of the OpenCV?")
         ans = st.radio("Choose any one",  ['A. Open Computer Vector', 'B. Open Computer Vision', 'C. Open Common Vector', 'D.  Open Common Vision'], index=None)
         if ans is None:
             st.warning("⚠️ Select an option")
