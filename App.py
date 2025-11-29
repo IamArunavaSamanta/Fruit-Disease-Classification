@@ -150,14 +150,14 @@ else:
                 # Run prediction only after file is uploaded
                 accuracy, label = savedModel.img_read(uploaded_file)
             
-                st.markdown(f"### 🤖 Predicted Class: `{label}`")
-                st.markdown(f"### 📊 Prediction Accuracy(%): `{accuracy:.3f}`")
+                st.markdown(f"#### 🤖 Predicted Class: `{label}`")
+                st.markdown(f"#### 📊 Prediction Accuracy(%): `{accuracy:.1f}`")
                 st.success("✅ Prediction completed!")
             else:
                 st.info("Please upload a leaf image to see predictions.")
 
 #--------------------------------------------------------------------------------------------------------        
-            st.text("🗒 Examples")    
+            st.text("🗒 Examples:")    
             # Image paths or URLs
             images = ["https://github.com/IamArunavaSamanta/Fruit-Disease-Classification/blob/main/images/Apple%20Healthy.jpg?raw=true", 
                       "https://github.com/IamArunavaSamanta/Fruit-Disease-Classification/blob/main/images/Apple%20Black%20Rot.jpg?raw=true",
@@ -310,6 +310,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
