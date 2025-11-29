@@ -116,6 +116,7 @@ else:
             uploaded_file = st.file_uploader("Choose a JPG file", type=["jpg"])
         
                 #Function
+            encoder = LabelEncoder()
             class ModelWrapper():
                 def __init__(self, model, encoder):
                     self.model = model
@@ -142,7 +143,7 @@ else:
                     
                     return Predicted_accuracy, predicted_label
         
-            savedModel, encoder = joblib.load("FruitsModel.pkl")
+            savedModel = joblib.load("FruitsModel.pkl")
             
             if uploaded_file is not None:
                 st.image(uploaded_file, caption="Uploaded Image", width=300)
@@ -311,6 +312,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
