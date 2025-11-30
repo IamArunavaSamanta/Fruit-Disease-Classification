@@ -24,7 +24,7 @@ import joblib
 from openpyxl import load_workbook
 
 st.set_page_config(
-    page_title="Arunava's Streamlit",
+    page_title="FruitLeaf AI",
     page_icon="𓆩♛𓆪",
     layout="wide"
 )
@@ -319,6 +319,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
