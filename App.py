@@ -153,6 +153,7 @@ else:
                 st.markdown(f"#### 🤖 Predicted Class: `{label}`")
                 st.markdown(f"#### 📊 Prediction Accuracy(%): `{accuracy:.1f}`")
                 st.success("✅ Prediction completed!")
+                #-------------------------------------------------------------------------------------------------------------------------------------------------
                 if label == 'Apple___healthy':
                     st.warning("Healthy apple trees mean strong growth and high profits—but neglect can turn them vulnerable to deadly diseases overnight. Don’t take chances: Regular pruning, proper nutrition, and preventive care are essential to keep your orchard safe. 📩 Contact us: Email – arunavasamanta001@gmail.com, WhatsApp – [+91-9330658166] for complete protection plans.")
                 if label == 'Apple___Black_rot':
@@ -161,7 +162,16 @@ else:
                     st.warning(" Note: Apple scab leaves ugly olive-green spots on leaves and fruits, making them unsellable. Severe infection causes premature leaf drop, weak trees, and up to 70% crop loss. Please connect with us—we will provide all decisions along with sprays, fungicides, and a full treatment plan to save your harvest. 📩 Contact us: Email – arunavasamanta001@gmail.com, WhatsApp – [+91-9330658166] for the best solution before it’s too late.")
                 if label == 'Apple___Cedar_apple_rust':
                     st.warning("Note: Orange spots on leaves and fruits mean cedar rust is attacking. This disease weakens trees, reduces fruit size, and spreads fast from nearby cedar plants. If untreated, your orchard’s productivity will collapse. Stop the spread today: We offer targeted fungicides and complete prevention strategies. 📩 Contact us: Email – arunavasamanta001@gmail.com, WhatsApp – [+91-9330658166] for guaranteed protection.")
-                
+                #----------------------------------------------------------------------------------------------------------------------------------------------------
+                if label == 'Grape___healthy':
+                    st.warning("Healthy grapevines are the backbone of a profitable vineyard—but even minor neglect can invite devastating diseases. Ensure strong growth with proper pruning, balanced nutrition, and preventive care. 📩 Contact us: Email – arunavasamanta001@gmail.com, WhatsApp – [+91-9330658166] for complete vineyard protection plans.")
+                if label == 'Grape___Black_rot':
+                    st.warning("Black rot is a major threat to grapevines. It begins as tiny brown spots on leaves and berries, then spreads rapidly, causing fruit mummification and severe yield loss. If ignored, your entire crop can be wiped out. Act now: Remove infected parts, apply recommended fungicides, and maintain strict vineyard hygiene. 📩 Contact us: Email – arunavasamanta001@gmail.com, WhatsApp – [+91-9330658166] for expert solutions before it’s too late.")
+                if label == 'Grape___Esca_(Black_Measles)':
+                    st.warning("Esca (Black Measles) is a deadly trunk disease. Symptoms include black streaks on wood, leaf scorch, and berries with dark spots. It weakens vines over time and can kill mature plants, slashing your profits. Immediate action is critical: We provide trunk treatment strategies, fungicide plans, and preventive care. 📩 Contact us: Email – arunavasamanta001@gmail.com, WhatsApp – [+91-9330658166] for guaranteed protection.")
+                if label == 'Grape___Leaf_blight_(Isariopsis_Leaf_Spot)':
+                    st.warning("Leaf blight (Isariopsis Leaf Spot) starts with irregular brown spots on leaves, reducing photosynthesis and weakening vines. Severe infection leads to premature leaf drop and poor fruit quality. Don’t let this disease ruin your harvest: We offer targeted sprays, fungicides, and complete vineyard care plans. 📩 Contact us: Email – arunavasamanta001@gmail.com, WhatsApp – [+91-9330658166] for the best solution before it’s too late.")
+                #-----------------------------------------------------------------------------------------------------------------------------------------------------
             else:
                 st.info("Please upload a leaf image to see predictions.")
 
@@ -319,6 +329,7 @@ else:
         if st.button("🚪Logout"):
             st.session_state.logged_in = False
             st.rerun()
+
 
 
 
